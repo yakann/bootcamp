@@ -16,7 +16,7 @@ public class SmsSender implements ISender {
         if(validator.isValid(messageDto)){
             for (UserDTO userObject: messageDto.getReceiver()
                  ) {
-                System.out.println( messageDto.getSender().getUserName()+
+                System.out.println( messageDto.getSender().getCompanyName()+
                         " is sending this SMS: " +messageDto.getText() +
                         "to " +userObject.getUserName() );
                 messageDto.getSender().increaseSmsCount();

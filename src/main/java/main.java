@@ -1,10 +1,13 @@
 import Interfaceses.ISender;
+import Interfaceses.ITariff;
 import Language.Turkish;
 import Model.MessageDTO;
 import Model.UserDTO;
 import Model.CompanyDTO;
 import Service.SenderService;
 import Exception.CountExceedException;
+import Tariff.MailTariff;
+import Tariff.SmsTariff;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +18,14 @@ public class main {
         //UserDTO senderCompany = new UserDTO();
         //senderCompany.setUserName("YAKAN A.S.");
         //senderCompany.setLanguage(new Turkish());
-        UserDTO sender = new UserDTO();
-        sender.setUserName("gönderici");
-        sender.setUserSurname("2");
-        sender.setUserEmail("3@gmail.com");
-        sender.setUserPhone("4");
+        CompanyDTO senderCompany = new CompanyDTO();
+        senderCompany.setCompanyName("YAKAN A.S.");
+        senderCompany.setLanguage(new Turkish());
+        senderCompany.setCompanyOwnedTariffs(new SmsTariff(1000));
+        senderCompany.setCompanyOwnedTariffs(new MailTariff(1000, senderCompany));
+
+        List<ITariff> tariffs = new ArrayList<>();
+        tariffs.add(new SmsTariff());
 
         UserDTO receiver1 = new UserDTO();
         receiver1.setUserName("Sila");
@@ -40,7 +46,8 @@ public class main {
         MessageDTO messageDTO = new MessageDTO();
         messageDTO.setText("Hello TechTalent");
         messageDTO.setReceiver(customers);
-        messageDTO.setSender(sender);
+        messageDTO.setSender(senderCompany);
+
 
         List<ISender> senders=new ArrayList<>();
         senders.add(new EmailSender(new MailValidator()));

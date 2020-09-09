@@ -6,13 +6,13 @@ import java.util.List;
 
 public class MessageDTO {
 
-    private UserDTO sender;
+    private CompanyDTO sender;
     private List<UserDTO> receiver;
     private String text;
 
-    public UserDTO getSender() { return sender; }
+    public CompanyDTO getSender() { return sender; }
 
-    public void setSender(UserDTO sender) {
+    public void setSender(CompanyDTO sender) {
         this.sender = sender;
     }
 

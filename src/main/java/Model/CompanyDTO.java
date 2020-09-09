@@ -1,12 +1,13 @@
 package Model;
 
+import Interfaceses.ITariff;
 import Language.ILanguage;
 
 public class CompanyDTO {
     private String companyName;
-    private TariffDTO companyOwnedTariffs;
+    private ITariff companyOwnedTariffs;
     private ILanguage language;
-    private Integer companyDebt;
+    private float companyDebt;
 
     public ILanguage getLanguage() { return language; }
 
@@ -22,19 +23,20 @@ public class CompanyDTO {
         this.companyName = companyName;
     }
 
-    public TariffDTO getCompanyOwnedTariffs() {
-        return companyOwnedTariffs;
-    }
-
-    public void setCompanyOwnedTariffs(TariffDTO companyOwnedTariffs) {
-        this.companyOwnedTariffs = companyOwnedTariffs;
-    }
-
-    public Integer getCompanyDebt() {
+    public float getCompanyDebt() {
         return companyDebt;
     }
 
-    public void setCompanyDebt(Integer companyDebt) {
+    public void setCompanyDebt(float companyDebt) {
         this.companyDebt = companyDebt;
+    }
+
+
+    public ITariff getCompanyOwnedTariffs() {
+        return companyOwnedTariffs;
+    }
+
+    public void setCompanyOwnedTariffs(ITariff companyOwnedTariffs) {
+        this.companyOwnedTariffs = companyOwnedTariffs;
     }
 }
